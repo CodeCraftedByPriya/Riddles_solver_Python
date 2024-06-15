@@ -1,6 +1,6 @@
 import random
 
-# Riddles dictionary (improved for clarity and efficiency)
+# Riddles dictionary
 riddles = {
     "What has lots of eyes, but can't see? - 6 words": "potato",
     "What has one eye, but can't see? - 6 words": "needle",
@@ -11,7 +11,12 @@ riddles = {
     "What has many teeth, but can't bite? - 4 words": "comb",
     "What has words, but never speaks? - 4 words": "book",
     "I’m tall when I’m young, and I’m short when I’m old. What am I? - 6 words": "candle",
-    "What is always in front of you but can’t be seen? - 6 words": "future"
+    "What is always in front of you but can’t be seen? - 6 words": "future",
+    "The poor have me; the rich need me. Eat me and you will die. What am I? - 7 words": "nothing",
+    "What word contains all of the twenty-six letters? - 9 words": "alphabets",
+    "What five-letter word can be read the same upside down or right side up?": "swims",
+    "What has a head and a tail, but no body or legs? - 4 words": "coin",
+    "What do you call a three-humped camel? - 8 words": "pregnant"
 }
 
 def difficulty_options() -> int:         #To selct the difficulty levels
@@ -30,7 +35,7 @@ def play_game():
     num_questions = 0
     correct_ans = 0
 
-    if difficulty == 2:  # High difficulty
+    if difficulty == 2:  # High difficulty               #alloting number of questions to the levels
         q = 10
         num_questions = 10
     elif difficulty == 3:  # Medium difficulty
@@ -52,7 +57,7 @@ def play_game():
             print("Correct! You move on to the next riddle.")
             del riddles[riddle]  # Remove solved riddle to avoid repetition
             num_questions -= 1
-            correct_ans += 1
+            correct_ans += 1     #count of number of correct answers
         else:
             lives -= 1
             num_questions -= 1
@@ -65,16 +70,16 @@ def play_game():
     else:
         print(f"Yesssss!!! You have completed this stage with {correct_ans} out of {q}")
 
-
+#OPENING OF THE GAME
 if __name__ == "__main__":
     print("WELCOME TO THE GAME OF CHOICES - RIDDLES HUNT")
     print("Enter 1 if you want to know HOW TO PLAY!\nEnter 2 if you want to START the game")
     strt = int(input())
 
-    if strt == 1:
+    if strt == 1:                    #Rules for the game
         print("HERE ARE THE RULES:\n1. You will be asked to fill out the textbox with the answers for the riddles (No of words will be given), and you have lives according to the level you choose.\n2. Each time you choose a wrong option, you will loose a life.\n3. If you choose the right answer, you will be given the next question.")
         strt = 2
 
-    if strt == 2:
+    if strt == 2:                    #The game starts
         print("THE GAME IS STARTING>>>")
         play_game()
